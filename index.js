@@ -237,7 +237,7 @@ const create = (win, options) => {
 			options.showCopyImage !== false && defaultActions.copyImage(),
 			options.showCopyImageAddress && defaultActions.copyImageAddress(),
 			defaultActions.separator(),
-			defaultActions.copyLink(),
+			// defaultActions.copyLink(),
 			defaultActions.separator(),
 			shouldShowInspectElement && defaultActions.inspect(),
 			options.showServices && defaultActions.services(),
