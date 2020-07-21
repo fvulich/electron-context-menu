@@ -29,7 +29,7 @@ const removeUnusedMenuItems = menuTemplate => {
 };
 
 const create = (win, options) => {
-	const handleContextMenu = (event, props) => {
+	const handleContextMenu = async (event, props) => {
 		if (typeof options.shouldShowMenu === 'function' && options.shouldShowMenu(event, props) === false) {
 			return;
 		}
@@ -249,7 +249,7 @@ const create = (win, options) => {
 		}
 
 		if (options.prepend) {
-			const result = options.prepend(defaultActions, props, win);
+			const result = await options.prepend(defaultActions, props, win);
 
 			if (Array.isArray(result)) {
 				menuTemplate.unshift(...result);
@@ -257,7 +257,7 @@ const create = (win, options) => {
 		}
 
 		if (options.append) {
-			const result = options.append(defaultActions, props, win);
+			const result = await options.append(defaultActions, props, win);
 
 			if (Array.isArray(result)) {
 				menuTemplate.push(...result);
